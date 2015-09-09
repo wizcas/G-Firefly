@@ -42,7 +42,7 @@ class Master:
     def masterapp(self):
         """
         """
-        config = json.load(open(self.configpath,'r'))
+        config = self.__loadconfig()
         GlobalObject().json_config = config
         mastercnf = config.get('master')
         rootport = mastercnf.get('rootport')
@@ -78,14 +78,14 @@ class Master:
             
         if mode == MULTI_SERVER_MODE:
             self.masterapp()
-            config = json.load(open(self.configpath,'r'))
+            config = self.__loadconfig()
             sersconf = config.get('servers')
             for sername in sersconf.keys():
                 cmds = 'python %s %s %s'%(self.mainpath,sername,self.configpath)
                 subprocess.Popen(cmds,shell=True)
             reactor.run()
         elif mode == SINGLE_SERVER_MODE:
-            config = json.load(open(self.configpath,'r'))
+            config = self.__loadconfig()
             sername = server_name
             cmds = 'python %s %s %s'%(self.mainpath,sername,self.configpath)
             subprocess.Popen(cmds,shell=True)
@@ -93,4 +93,5 @@ class Master:
             self.masterapp()
             reactor.run()
             
-            
+    def __loadconfig(self):
+        return __import__(self.configpath).config_dict
