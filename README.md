@@ -1,3 +1,5 @@
+Forked by Wizcas
+
 ####G-Firefly简介+Firefly-Gevent重要迭代版本alpha 0.1.5介绍
 在alpha 0.1.5做了如下的改进：
 １、单node节点断开与root节点的连接后自动重连。
