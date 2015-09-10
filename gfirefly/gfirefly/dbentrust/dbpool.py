@@ -6,7 +6,7 @@ Created on 2013-5-8
 '''
 from DBUtils.PooledDB import PooledDB
 
-DBCS = {'MySQLdb':"MySQLdb",}
+DBCS = {'MySQLdb':"mysql.connector",}
 
 # class DBPool(PooledDB):
 #     """
