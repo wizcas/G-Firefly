@@ -30,7 +30,7 @@ setup(name='gfirefly',
           "affinity",
           "python-memcached",
           "mysql-connector-python",
-          "gevent-zeromq"
+          "pyzmq"
       ],
       entry_points="""
       # -*- Entry points: -*-
